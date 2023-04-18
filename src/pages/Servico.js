@@ -39,7 +39,12 @@ function Servico({ onSubmit = () => {} }) {
     setInicioServico("");
     setFimServico("");
   };
-
+  const handleExcluirServico = (index) => {
+    const servicosAtualizados = servicos.filter((_, i) => i !== index);
+    setServicos(servicosAtualizados);
+    localStorage.setItem("servicos", JSON.stringify(servicosAtualizados));
+  };
+  
   return (
     <div>
       <h2>Cadastro de Serviço</h2>
@@ -111,7 +116,7 @@ function Servico({ onSubmit = () => {} }) {
       </form>
       <h2>Serviços cadastrados</h2>
       <ul>
-      {servicos.map((servico, index) => (
+      {/* {servicos.map((servico, index) => (
   <li key={index}>
     ID do Cliente: {servico.clienteId}<br />
     QR Code: {servico.qrCode}<br />
@@ -121,8 +126,19 @@ function Servico({ onSubmit = () => {} }) {
     Início do Serviço: {servico.inicioServico}<br />
     Fim do Serviço: {servico.fimServico}<br />
   </li>
-))}
-
+))} */}
+  {servicos.map((servico, index) => (
+    <li key={index}>
+      ID do Cliente: {servico.clienteId}<br />
+      QR Code: {servico.qrCode}<br />
+      Responsável pelo Serviço: {servico.responsavel}<br />
+      Peça: {servico.peca}<br />
+      Valor da Peça: {servico.valorPeca}<br />
+      Início do Serviço: {servico.inicioServico}<br />
+      Fim do Serviço: {servico.fimServico}<br />
+      <button onClick={() => handleExcluirServico(index)}>Excluir</button>
+    </li>
+  ))}
       </ul>
     </div>
   );
