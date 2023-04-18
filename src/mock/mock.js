@@ -54,3 +54,30 @@ export const clientes = [
     },
   ];
   
+  export const produtos = [
+    {
+      nome: "Pneu",
+      preco: 299.99,
+    },
+    {
+      nome: "Óleo",
+      preco: 39.99,
+    },
+    {
+      nome: "Pastilha de Freio",
+      preco: 50,
+    },
+    {
+      nome: "Amortecedor",
+      preco: 499.99,
+    },
+    {
+      nome: "Bateria",
+      preco: 399.99,
+    },
+    {
+      nome: "Filtro de óleo",
+      preco: 50,
+    },
+  ];
+  

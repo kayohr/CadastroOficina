@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { clientes, veiculos, servicos } from "../mock/mock";
+import { clientes, veiculos, servicos, produtos } from "../mock/mock";
 
 function Servicos() {
   const [listaServicos, setListaServicos] = useState(servicos);
+  
 
   const handleExcluirServico = (id) => {
     const novaLista = listaServicos.filter((servico) => servico.id !== id);
