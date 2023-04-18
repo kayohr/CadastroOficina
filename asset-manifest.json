@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/UltracarOficina/static/css/main.1f691138.css",
-    "main.js": "/UltracarOficina/static/js/main.3fa5d32b.js",
+    "main.js": "/UltracarOficina/static/js/main.17bfaf28.js",
     "static/js/787.1c933ea4.chunk.js": "/UltracarOficina/static/js/787.1c933ea4.chunk.js",
     "static/media/Logo.png": "/UltracarOficina/static/media/Logo.d914d912ef98eb4df252.png",
     "index.html": "/UltracarOficina/index.html",
     "main.1f691138.css.map": "/UltracarOficina/static/css/main.1f691138.css.map",
-    "main.3fa5d32b.js.map": "/UltracarOficina/static/js/main.3fa5d32b.js.map",
+    "main.17bfaf28.js.map": "/UltracarOficina/static/js/main.17bfaf28.js.map",
     "787.1c933ea4.chunk.js.map": "/UltracarOficina/static/js/787.1c933ea4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1f691138.css",
-    "static/js/main.3fa5d32b.js"
+    "static/js/main.17bfaf28.js"
   ]
 }
