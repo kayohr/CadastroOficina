@@ -1,0 +1,55 @@
+
+
+.identificacao-cliente {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    width: fit-content;
+  }
+  
+.cliente-info {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  /* .cliente-info__dados {
+    flex: 1;
+  } */
+/*   
+  .qrcode-wrapper {
+    margin-left: 20px;
+  }
+  
+  .cliente-info__qrcode {
+    margin-bottom: 10px;
+  }
+  
+  .cliente-info__lista {
+    margin-top: 20px;
+  } */
+  
+  .qr-code-and-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .qr-code {
+    margin-top: -50px;
+    margin-bottom: 20px;
+  }
+  
+  .clientes-cadastrados {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  

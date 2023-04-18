@@ -1,21 +1,42 @@
-.conteinerCadastro {
-    display: flex;
-    /* flex-direction: column; */
-    display: flex;
-    flex-direction: column;
-    margin: 20px;  height: 100vh;
+.home {
   background-image: url('./image/Logo.png');
   background-size: cover;
-  margin-bottom: 10px;
-  
+  height: 100vh;
 }
 
-.conteinerCadastro label,
-.conteinerCadastro input,
-.conteinerCadastro button {
-  margin-bottom: 10px;
+.form-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.conteinerCadastro button {
-  align-self: flex-start;
+.login-form {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  padding: 20px;
+  background: transparent;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+}
+
+.login-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
 }

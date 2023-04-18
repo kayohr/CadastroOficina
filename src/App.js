@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import CadastroCliente from './pages/CadastroCliente';
 import './Login.css'
 import './CadastroCliente.css'
+import './ClienteStyle.css'
 
 
 function App() {

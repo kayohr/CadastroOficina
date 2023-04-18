@@ -41,4 +41,20 @@
 .home {
   background-image: url('./image/Logo.png');
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
+
+  .transparent {
+  background-color: transparent;
+  }
+  
+  .conteinerCadastro {
+  height: 100vh;
+  }

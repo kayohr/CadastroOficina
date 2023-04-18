@@ -81,6 +81,8 @@ function Servico({ onSubmit = () => {} }) {
           QR Code:
           <input
             type="text"
+            placeholder="Identificação do cliente
+            "
             value={qrCode}
             onChange={(event) => setQrCode(event.target.value)}
           />

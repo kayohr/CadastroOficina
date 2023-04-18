@@ -9,7 +9,6 @@ function CadastroCliente() {
   const history = useHistory();
   const { nome, telefone, email, placaVeiculo, modeloVeiculo, setNome, setTelefone, setEmail, setPlacaVeiculo, setModeloVeiculo } = useContext(LoginContext);
 
-
   const handleNomeChange = (event) => {
     setNome(event.target.value);
   };
@@ -45,45 +44,45 @@ function CadastroCliente() {
   };
 
   return (
-    <div>
-      <NavLink 
-    to="/" 
-    activeClassName="">
- <AiOutlineRollback />    
- </NavLink>
-      <form onSubmit={handleFormSubmit}>
-        <h1 className='test'>Cadastro Cliente</h1>
-        <div className='conteinerCadastro'>
-        <label>
-          Nome:
-          <input type="text" name="nome" value={nome} onChange={handleNomeChange} />
-        </label>
-        <br />
-        <label>
-          Telefone:
-          <input type="text" name="telefone" value={telefone} onChange={handleTelefoneChange} />
-        </label>
-        <br />
-        {/* <label>
-          Email:
-          <input type="email" name="email" value={email} onChange={handleEmailChange} />
-        </label>
-        <br /> */}
-        <label>
-          Placa do Veículo:
-          <input type="text" name="placaVeiculo" value={placaVeiculo} onChange={handlePlacaVeiculoChange} />
-        </label>
-        <br />
-        <label>
-          Modelo do Veículo:
-          <input type="text" name="modeloVeiculo" value={modeloVeiculo} onChange={handleModeloVeiculoChange} />
-        </label>
-        <br />
-        <button type="submit">Cadastrar Cliente</button>
-        </div>
-      </form>
+    <div className="home">
+      <NavLink to="/" activeClassName="">
+        <AiOutlineRollback />
+      </NavLink>
+      <div className="form-wrapper">
+        <form onSubmit={handleFormSubmit} className="login-form">
+          <h1 className='test'>Cadastro Cliente</h1>
+          <div className='conteinerCadastro'>
+            <label>
+              Nome:
+              <input type="text" name="nome" value={nome} onChange={handleNomeChange} />
+            </label>
+            <br />
+            <label>
+              Telefone:
+              <input type="text" name="telefone" value={telefone} onChange={handleTelefoneChange} />
+            </label>
+            <br />
+            {/* <label>
+            Email:
+            <input type="email" name="email" value={email} onChange={handleEmailChange} />
+          </label>
+          <br /> */}
+            <label>
+              Placa do Veículo:
+              <input type="text" name="placaVeiculo" value={placaVeiculo} onChange={handlePlacaVeiculoChange} />
+            </label>
+            <br />
+            <label>
+              Modelo do Veículo:
+              <input type="text" name="modeloVeiculo" value={modeloVeiculo} onChange={handleModeloVeiculoChange} />
+            </label>
+            <br />
+            <button type="submit">Cadastrar Cliente</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
-}
-
+        }
 export default CadastroCliente;
+
