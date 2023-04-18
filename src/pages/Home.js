@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Home() {
     return (
-        <div>
+        <div className='home'>
              <NavLink 
     to="/cadastro" 
     activeClassName="">

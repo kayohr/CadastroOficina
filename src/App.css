@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+.home {
+  background-image: url('./image/Logo.png');
+  background-size: cover;
+}

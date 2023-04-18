@@ -52,7 +52,8 @@ function CadastroCliente() {
  <AiOutlineRollback />    
  </NavLink>
       <form onSubmit={handleFormSubmit}>
-        <h1>Cadastro Cliente</h1>
+        <h1 className='test'>Cadastro Cliente</h1>
+        <div className='conteinerCadastro'>
         <label>
           Nome:
           <input type="text" name="nome" value={nome} onChange={handleNomeChange} />
@@ -79,6 +80,7 @@ function CadastroCliente() {
         </label>
         <br />
         <button type="submit">Cadastrar Cliente</button>
+        </div>
       </form>
     </div>
   );

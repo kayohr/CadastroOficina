@@ -1,0 +1,21 @@
+.conteinerCadastro {
+    display: flex;
+    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    margin: 20px;  height: 100vh;
+  background-image: url('./image/Logo.png');
+  background-size: cover;
+  margin-bottom: 10px;
+  
+}
+
+.conteinerCadastro label,
+.conteinerCadastro input,
+.conteinerCadastro button {
+  margin-bottom: 10px;
+}
+
+.conteinerCadastro button {
+  align-self: flex-start;
+}
