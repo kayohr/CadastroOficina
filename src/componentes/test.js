@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { clientes } from '../mock/mock';
 import LoginContext from '../context/LoginContext';
 
 function CadastroCliente() {
   const history = useHistory();
   const { nome, telefone, email, placaVeiculo, modeloVeiculo, setNome, setTelefone, setEmail, setPlacaVeiculo, setModeloVeiculo } = useContext(LoginContext);
 
+  const [listaClientes, setListaClientes] = useState([]);
+
+  useEffect(() => {
+    const storedClientes = JSON.parse(localStorage.getItem('clientes'));
+    if (storedClientes) {
+      setListaClientes(storedClientes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('clientes', JSON.stringify(listaClientes));
+  }, [listaClientes]);
 
   const handleNomeChange = (event) => {
     setNome(event.target.value);
@@ -30,17 +41,44 @@ function CadastroCliente() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Adiciona o novo cliente à lista de clientes mockada
+    // Adiciona o novo cliente à lista de clientes
     const novoCliente = {
-      id: clientes.length + 1,
+      id: listaClientes.length + 1,
       nome,
       telefone,
       email,
       veiculos: [],
     };
-    clientes.push(novoCliente);
-    history.push('/home');
+    setListaClientes([...listaClientes, novoCliente]);
+    // Limpa os campos do formulário
+    setNome('');
+    setTelefone('');
+    setEmail('');
+    setPlacaVeiculo('');
+    setModeloVeiculo('');
   };
+
+  const handleExcluirClick = (id) => {
+    setListaClientes(listaClientes.filter((cliente) => cliente.id !== id));
+  };
+
+  function ListaClientes() {
+    
+    return (
+      <div>
+        <h2>Lista de Clientes</h2>
+        <ul>
+          {listaClientes.map((cliente) => (
+            <li key={cliente.id}>
+              <strong>Nome:</strong> {cliente.nome}, <strong>Telefone:</strong> {cliente.telefone}, <strong>Email:</strong> {cliente.email}
+              <button onClick={() => history.push('/home', { cliente: cliente })}>Enviar para Home</button>
+              <button onClick={() => handleExcluirClick(cliente.id)}>Excluir</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -68,12 +106,14 @@ function CadastroCliente() {
         <label>
           Modelo do Veículo:
           <input type="text" name="modeloVeiculo" value={modeloVeiculo} onChange={handleModeloVeiculoChange} />
-        </label>
-        <br />
-        <button type="submit">Cadastrar Cliente</button>
-      </form>
-    </div>
-  );
+</label>
+<br />
+<button type="submit">Cadastrar</button>
+</form>
+<hr />
+<ListaClientes />
+</div>
+);
 }
 
 export default CadastroCliente;

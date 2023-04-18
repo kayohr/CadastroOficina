@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Servico({ onSubmit = () => {} }) {
   const [clienteId, setClienteId] = useState("");
@@ -8,10 +8,18 @@ function Servico({ onSubmit = () => {} }) {
   const [valorPeca, setValorPeca] = useState("");
   const [inicioServico, setInicioServico] = useState("");
   const [fimServico, setFimServico] = useState("");
+  const [servicos, setServicos] = useState([]);
+
+  useEffect(() => {
+    const servicosSalvos = localStorage.getItem("servicos");
+    if (servicosSalvos) {
+      setServicos(JSON.parse(servicosSalvos));
+    }
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit({
+    const servico = {
       clienteId,
       qrCode,
       responsavel,
@@ -19,7 +27,17 @@ function Servico({ onSubmit = () => {} }) {
       valorPeca,
       inicioServico,
       fimServico,
-    });
+    };
+    setServicos([...servicos, servico]);
+    localStorage.setItem("servicos", JSON.stringify([...servicos, servico]));
+    onSubmit(servico);
+    setClienteId("");
+    setQrCode("");
+    setResponsavel("");
+    setPeca("");
+    setValorPeca("");
+    setInicioServico("");
+    setFimServico("");
   };
 
   return (
@@ -91,9 +109,23 @@ function Servico({ onSubmit = () => {} }) {
         <br />
         <button type="submit">Cadastrar</button>
       </form>
+      <h2>Serviços cadastrados</h2>
+      <ul>
+      {servicos.map((servico, index) => (
+  <li key={index}>
+    ID do Cliente: {servico.clienteId}<br />
+    QR Code: {servico.qrCode}<br />
+    Responsável pelo Serviço: {servico.responsavel}<br />
+    Peça: {servico.peca}<br />
+    Valor da Peça: {servico.valorPeca}<br />
+    Início do Serviço: {servico.inicioServico}<br />
+    Fim do Serviço: {servico.fimServico}<br />
+  </li>
+))}
+
+      </ul>
     </div>
   );
 }
 
 export default Servico;
-  

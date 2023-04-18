@@ -7,6 +7,13 @@ export default function LoginProvider({children}){
       const [email, setEmail] = useState('');
       const [placaVeiculo, setPlacaVeiculo] = useState('');
       const [modeloVeiculo, setModeloVeiculo] = useState('');
+      const [updateLogin, setUpdateLogin] = useState({
+        nome: '',
+        telefone: '',
+        email: '',
+        placaVeiculo: '',
+        modeloVeiculo: '',
+      });
     // useEffect(() => {
     //   }, []);
 
@@ -16,12 +23,14 @@ export default function LoginProvider({children}){
         email,
         placaVeiculo,
         modeloVeiculo,
+        updateLogin,
         setNome,
         setTelefone,
         setEmail,
         setPlacaVeiculo,
-        setModeloVeiculo
-    }), [nome, telefone, email, placaVeiculo, modeloVeiculo, setNome, setTelefone, setEmail,setPlacaVeiculo, setModeloVeiculo]) 
+        setModeloVeiculo,
+        setUpdateLogin
+    }), [nome, telefone, email, placaVeiculo, modeloVeiculo, updateLogin, setNome, setTelefone, setEmail,setPlacaVeiculo, setModeloVeiculo, setUpdateLogin]) 
     
     return (
     <LoginContext.Provider value={ value }>
