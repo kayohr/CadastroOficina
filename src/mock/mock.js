@@ -40,7 +40,16 @@ export const clientes = [
       id: 1,
       veiculoId: 1,
       tecnico: "José da Silva",
-      pecas: ["Pastilha de freio", "Filtro de óleo"],
+      produtos: [
+        {
+          nome: "Pastilha de freio",
+          preco: 50,
+        },
+        {
+          nome: "Filtro de óleo",
+          preco: 30,
+        },
+      ],
       dataInicio: new Date(2023, 3, 16, 8, 0),
       dataFim: new Date(2023, 3, 16, 12, 0),
     },
@@ -48,12 +57,17 @@ export const clientes = [
       id: 2,
       veiculoId: 2,
       tecnico: "Maria Souza",
-      pecas: ["Bateria"],
+      produtos: [
+        {
+          nome: "Bateria",
+          preco: 399.99,
+        },
+      ],
       dataInicio: new Date(2023, 3, 15, 10, 0),
       dataFim: new Date(2023, 3, 15, 12, 0),
     },
-    
   ];
+  
   
   export const produtos = [
     {

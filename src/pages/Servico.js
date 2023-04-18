@@ -17,6 +17,9 @@ function Servico({ onSubmit = () => {} }) {
   const [fimServico, setFimServico] = useState("");
   const [servicos, setServicos] = useState([]);
   const [pecaSelecionada, setPecaSelecionada] = useState({});
+  const [servicoSelecionado, setServicoSelecionado] = useState(null);
+const [modoEdicao, setModoEdicao] = useState(false);
+
 
   useEffect(() => {
     const servicosSalvos = localStorage.getItem("servicos");
@@ -54,6 +57,12 @@ function Servico({ onSubmit = () => {} }) {
     localStorage.setItem("servicos", JSON.stringify(servicosAtualizados));
   };
 
+  const handleEditarServico = (index) => {
+    setServicoSelecionado(servicos[index]);
+    setModoEdicao(true);
+  };
+  
+
   return (
     <div>
       <NavLink to="/home" activeClassName="">
@@ -62,6 +71,7 @@ function Servico({ onSubmit = () => {} }) {
       <NavLink to="/" activeClassName="">
         <GiExitDoor />
       </NavLink>
+      
       <div className="form-cadastro">
         <h2>Cadastro de Serviço</h2>
         <form onSubmit={handleSubmit}>
