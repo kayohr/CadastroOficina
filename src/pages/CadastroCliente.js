@@ -35,7 +35,7 @@ function CadastroCliente() {
       id: clientes.length + 1,
       nome,
       telefone,
-      email,
+      // email,
       veiculos: [],
     };
     clientes.push(novoCliente);
@@ -45,6 +45,7 @@ function CadastroCliente() {
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
+        <h1>Cadastro Cliente</h1>
         <label>
           Nome:
           <input type="text" name="nome" value={nome} onChange={handleNomeChange} />
@@ -55,11 +56,11 @@ function CadastroCliente() {
           <input type="text" name="telefone" value={telefone} onChange={handleTelefoneChange} />
         </label>
         <br />
-        <label>
+        {/* <label>
           Email:
           <input type="email" name="email" value={email} onChange={handleEmailChange} />
         </label>
-        <br />
+        <br /> */}
         <label>
           Placa do Veículo:
           <input type="text" name="placaVeiculo" value={placaVeiculo} onChange={handlePlacaVeiculoChange} />

@@ -47,7 +47,7 @@ export default function Cliente() {
       <h1>Identificação do cliente</h1>
       <p>Nome: {nome}</p>
       <p>Telefone: {telefone}</p>
-      <p>Email: {email}</p>
+      {/* <p>Email: {email}</p> */}
       <p>Placa do Veículo: {placaVeiculo}</p>
       <p>Modelo do Veículo: {modeloVeiculo}</p>
       <br />

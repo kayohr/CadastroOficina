@@ -52,6 +52,7 @@ export const clientes = [
       dataInicio: new Date(2023, 3, 15, 10, 0),
       dataFim: new Date(2023, 3, 15, 12, 0),
     },
+    
   ];
   
   export const produtos = [
