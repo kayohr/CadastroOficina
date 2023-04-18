@@ -47,12 +47,12 @@ function Login() {
         <form onSubmit={handleFormSubmit}>
           <label>
             Email:
-            <input type="email" value={email} onChange={handleEmailChange} />
+            <input placeholder='Ex: email@gmail.com' type="email" value={email} onChange={handleEmailChange} />
           </label>
           <br />
           <label>
             Password:
-            <input type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordChange} />
+            <input placeholder='De 6 caracteres pra cima ' type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordChange} />
             <span onClick={toggleShowPassword}>{showPassword ? <BsFillEyeFill />: <BsFillEyeSlashFill />}</span>
           </label>
           <br />
