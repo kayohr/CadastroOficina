@@ -10,6 +10,7 @@ import CadastroCliente from './pages/CadastroCliente';
 import './Login.css'
 import './CadastroCliente.css'
 import './ClienteStyle.css'
+import './ServicoStyle.css'
 
 
 function App() {

@@ -56,111 +56,114 @@ function Servico({ onSubmit = () => {} }) {
 
   return (
     <div>
-    <NavLink 
-    to="/home" 
-    activeClassName="">
- <AiOutlineRollback />    
- </NavLink>
- <NavLink 
-    to="/" 
-    activeClassName="">
- <GiExitDoor />    
- </NavLink>
-      <h2>Cadastro de Serviço</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          ID do Cliente:
-          <input
-            type="text"
-            value={clienteId}
-            onChange={(event) => setClienteId(event.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          QR Code:
-          <input
-            type="text"
-            placeholder="Identificação do cliente
-            "
-            value={qrCode}
-            onChange={(event) => setQrCode(event.target.value)}
-          />
-        </label>
-        <br />
-       <div>
-      <Tecnico />
-       </div>
-        <br />
-        <label>
-          Peça:
-          <select
-            value={pecaSelecionada.nome}
-            onChange={(event) => {
-              const nome = event.target.value;
-              const peca = produtos.find((p) => p.nome === nome);
-              setPecaSelecionada(peca);
-              setValorPeca(peca.preco);
-            }}
-          >
-            {produtos.map((p) => (
-              <option key={p.nome} value={p.nome}>
-                {p.nome}
-              </option>
-            ))}
-          </select>
-        </label>
-        <br />
-        <label>Valor da Peça: R${valorPeca}</label>
-        <br />
-        <label>
-          Início do Serviço:
-          <input
-            type="datetime-local"
-            value={inicioServico}
-            onChange={(event) => setInicioServico(event.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Fim do Serviço:
-          <input
-            type="datetime-local"
-            value={fimServico}
-            onChange={(event) => setFimServico(event.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Cadastrar</button>
-      </form>
-      <h2>Serviços cadastrados</h2>
-      <ul>
-        <div className="cs">
+      <NavLink to="/home" activeClassName="">
+        <AiOutlineRollback />
+      </NavLink>
+      <NavLink to="/" activeClassName="">
+        <GiExitDoor />
+      </NavLink>
+      <div className="form-cadastro">
+        <h2>Cadastro de Serviço</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            ID do Cliente:
+            <input
+              type="text"
+              value={clienteId}
+              onChange={(event) => setClienteId(event.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            QR Code:
+            <input
+              type="text"
+              placeholder="Identificação do cliente"
+              value={qrCode}
+              onChange={(event) => setQrCode(event.target.value)}
+            />
+          </label>
+          <br />
+          <div>
+            <label>
+             
+              <Tecnico />
+            </label>
+          </div>
+          <br />
+          <label>
+            Peça:
+            <select
+              value={pecaSelecionada.nome}
+              onChange={(event) => {
+                const nome = event.target.value;
+                const peca = produtos.find((p) => p.nome === nome);
+                setPecaSelecionada(peca);
+                setValorPeca(peca.preco);
+              }}
+            >
+              {produtos.map((p) => (
+                <option key={p.nome} value={p.nome}>
+                  {p.nome}
+                </option>
+              ))}
+            </select>
+          </label>
+          <br />
+          <label>Valor da Peça: R${valorPeca}</label>
+          <br />
+          <label>
+            Início do Serviço:
+            <input
+              type="datetime-local"
+              value={inicioServico}
+              onChange={(event) => setInicioServico(event.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Fim do Serviço:
+            <input
+              type="datetime-local"
+              value={fimServico}
+              onChange={(event) => setFimServico(event.target.value)}
+            />
+          </label>
+          <br />
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+      <div className="servicos-cadastrados">
+        <h2>Serviços cadastrados</h2>
+        <ul>
+        <div>
           <CadastroServico />
         </div>
-
-        {servicos.map((servico, index) => (
-          <li key={index}>
-            ID do Cliente: {servico.clienteId}
-            <br />
-            QR Code: {servico.qrCode}
-            <br />
-            Responsável pelo Serviço: {servico.responsavel}
-            <br />
-            Peça: {servico.peca}
-            <br />
-            Valor da Peça: {servico.valorPeca}
-            <br />
-            Início do Serviço: {servico.inicioServico}
-            <br />
-            Fim do Serviço: {servico.fimServico}
-            <br />
-            <button onClick={() => handleExcluirServico(index)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+          {servicos.map((servico, index) => (
+            <li key={index}>
+              ID do Cliente: {servico.clienteId}
+              <br />
+              QR Code: {servico.qrCode}
+              <br />
+              Responsável pelo Serviço: {servico.responsavel}
+              <br />
+              Peça: {servico.peca}
+              <br />
+              Valor da Peça: {servico.valorPeca}
+              <br />
+              Início do Serviço: {servico.inicioServico}
+              <br />
+              Fim do Serviço: {servico.fimServico}
+              <br />
+              <button onClick={() => handleExcluirServico(index)}>Excluir</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
+  
+  
 }
 
 export default Servico;

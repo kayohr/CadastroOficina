@@ -1,5 +1,6 @@
 {
   "name": "ultracar-oficina",
+  "homepage": "https://kayohr.github.io/UltracarOficina/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "crypto-js": "^4.1.1",
+    "gh-pages": "^5.0.0",
     "jsqr": "^1.4.0",
     "qrcode": "^1.5.1",
     "qrcode-decoder": "^0.3.3",
@@ -24,6 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
