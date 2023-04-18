@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import QRCode from 'qrcode.react';
 import LoginContext from '../context/LoginContext';
+import { AiOutlineRollback } from 'react-icons/ai';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Cliente() {
   const { nome, telefone, email, placaVeiculo, modeloVeiculo } = useContext(LoginContext);
@@ -44,6 +46,11 @@ export default function Cliente() {
 
   return (
     <div>
+                   <NavLink 
+    to="/home" 
+    activeClassName="">
+ <AiOutlineRollback />    
+ </NavLink>
       <h1>Identificação do cliente</h1>
       <p>Nome: {nome}</p>
       <p>Telefone: {telefone}</p>

@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { clientes } from '../mock/mock';
+import { AiOutlineRollback } from 'react-icons/ai';
 import LoginContext from '../context/LoginContext';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 function CadastroCliente() {
   const history = useHistory();
@@ -44,6 +46,11 @@ function CadastroCliente() {
 
   return (
     <div>
+      <NavLink 
+    to="/" 
+    activeClassName="">
+ <AiOutlineRollback />    
+ </NavLink>
       <form onSubmit={handleFormSubmit}>
         <h1>Cadastro Cliente</h1>
         <label>

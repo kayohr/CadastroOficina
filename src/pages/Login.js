@@ -1,15 +1,13 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-// import LoginContext from '../context/LoginContext';
-
-
+import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [load, setLoad] = useState(false);
-  // const [disabled, setDisabled] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -37,6 +35,10 @@ function Login() {
     }, 2000);
   };
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div>
       {load ? (
@@ -50,7 +52,8 @@ function Login() {
           <br />
           <label>
             Password:
-            <input type="password" value={password} onChange={handlePasswordChange} />
+            <input type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordChange} />
+            <span onClick={toggleShowPassword}>{showPassword ? <BsFillEyeFill />: <BsFillEyeSlashFill />}</span>
           </label>
           <br />
           <button type="submit" disabled={!validateFields()}>

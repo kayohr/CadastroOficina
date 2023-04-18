@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import CadastroServico from "../componentes/CadastroSalvo";
 import { produtos } from "../mock/mock";
 import Tecnico from "../componentes/Tecnico";
+import { AiOutlineRollback } from 'react-icons/ai';
+import { GiExitDoor } from 'react-icons/gi';
+
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Servico({ onSubmit = () => {} }) {
   const [clienteId, setClienteId] = useState("");
@@ -52,6 +56,16 @@ function Servico({ onSubmit = () => {} }) {
 
   return (
     <div>
+    <NavLink 
+    to="/home" 
+    activeClassName="">
+ <AiOutlineRollback />    
+ </NavLink>
+ <NavLink 
+    to="/" 
+    activeClassName="">
+ <GiExitDoor />    
+ </NavLink>
       <h2>Cadastro de Serviço</h2>
       <form onSubmit={handleSubmit}>
         <label>
