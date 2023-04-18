@@ -1,13 +1,16 @@
+
 export const clientes = [
     {
       id: 1,
       nome: "João Silva",
+      // QRCode: "clu6if8f4xq44g03s7o0zj",
       email: "joao.silva@teste.com",
       telefone: "(11) 1111-1111",
     },
     {
       id: 2,
-      nome: "Maria Souza",
+      // QR Code:
+      nome: "Joana Souza",
       email: "maria.souza@teste.com",
       telefone: "(11) 2222-2222",
     },

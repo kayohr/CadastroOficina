@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // import LoginContext from '../context/LoginContext';
 
@@ -9,7 +9,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [load, setLoad] = useState(false);
-  const [disabled, setDisabled] = useState(true);
+  // const [disabled, setDisabled] = useState(true);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);

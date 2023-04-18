@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CadastroServico from "../componentes/CadastroSalvo";
 
 function Servico({ onSubmit = () => {} }) {
   const [clienteId, setClienteId] = useState("");
@@ -116,7 +117,12 @@ function Servico({ onSubmit = () => {} }) {
       </form>
       <h2>Serviços cadastrados</h2>
       <ul>
-      {/* {servicos.map((servico, index) => (
+      <div className="cs">
+        
+          <CadastroServico />
+        
+      </div>
+      {/* {mock.map((servico, index) => (
   <li key={index}>
     ID do Cliente: {servico.clienteId}<br />
     QR Code: {servico.qrCode}<br />

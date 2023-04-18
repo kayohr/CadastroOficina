@@ -3,7 +3,7 @@ import QRCode from 'qrcode.react';
 import LoginContext from '../context/LoginContext';
 
 export default function Cliente() {
-  const { nome, telefone, email, placaVeiculo, modeloVeiculo, updateLogin, setNome, setTelefone, setEmail, setPlacaVeiculo, setModeloVeiculo } = useContext(LoginContext);
+  const { nome, telefone, email, placaVeiculo, modeloVeiculo } = useContext(LoginContext);
   const [qrCodeData, setQrCodeData] = useState('');
   const [qrCodeKey, setQrCodeKey] = useState('');
   const [copied, setCopied] = useState(false);
@@ -15,16 +15,15 @@ export default function Cliente() {
     setQrCodeKey(key);
 
     // Gera o QR code com a chave e as informações do cliente
-    setQrCodeData(`${key}, ${nome}, ${telefone}, ${email}, ${placaVeiculo}, ${modeloVeiculo}`);
-  }, [nome, telefone, email, placaVeiculo, modeloVeiculo]);
+    const data = `${nome}: ${key}`;
+    setQrCodeData(data);
 
-  useEffect(() => {
-    // Obtém a lista de clientes do localStorage e a armazena no estado clientes
-    const listaClientes = JSON.parse(localStorage.getItem('clientes'));
-    if (listaClientes) {
-      setClientes(listaClientes);
-    }
-  }, []);
+    // Adiciona o novo cliente na lista de clientes
+    const novoCliente = { key, nome, telefone, email, placaVeiculo, modeloVeiculo };
+    const listaClientes = [...clientes, novoCliente];
+    localStorage.setItem('clientes', JSON.stringify(listaClientes));
+    setClientes(listaClientes);
+  }, [nome, telefone, email, placaVeiculo, modeloVeiculo]);
 
   const handleQrCodeDataChange = (event) => {
     setQrCodeData(event.target.value);
@@ -36,42 +35,12 @@ export default function Cliente() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleCadastro = async () => {
-    // Cria um novo objeto cliente com as informações do formulário
-    const novoCliente = {
-      nome,
-      telefone,
-      email,
-      placaVeiculo,
-      modeloVeiculo,
-    };
-
-    // Adiciona o novo cliente à lista de clientes
-    const novaListaClientes = [...clientes, novoCliente];
-    setClientes(novaListaClientes);
-
-    // Salva a nova lista de clientes no localStorage
-    localStorage.setItem('clientes', JSON.stringify(novaListaClientes));
-
-    // Limpa os valores dos campos do formulário
-    setNome('');
-    setTelefone('');
-    setEmail('');
-    setPlacaVeiculo('');
-    setModeloVeiculo('');
+  const handleDeleteCliente = (clienteKey) => {
+    // Remove o cliente com a chave informada da lista de clientes
+    const listaClientes = clientes.filter((cliente) => cliente.key !== clienteKey);
+    localStorage.setItem('clientes', JSON.stringify(listaClientes));
+    setClientes(listaClientes);
   };
-
-  // const handleExcluir = (index) => {
-  //   // Cria uma cópia da lista de clientes
-  //   const novaListaClientes = [...clientes];
-
-  //   // Remove o cliente com o índice especificado da lista de clientes
-  //   novaListaClientes.splice(index, 1);
-
-  //   // Atualiza o estado clientes e o localStorage com a nova lista de clientes
-  //   setClientes(novaListaClientes);
-  //   localStorage.setItem('clientes', JSON.stringify(novaListaClientes));
-  // };
 
   return (
     <div>
@@ -84,14 +53,21 @@ export default function Cliente() {
       <br />
       <label>
         QR Code data:
-       
         <input type="text" value={qrCodeData} onChange={handleQrCodeDataChange} />
       </label>
       <button onClick={handleCopyQrCode}>{copied ? 'Copiado!' : 'Copiar'}</button>
       <br />
       <QRCode value={qrCodeData} />
       <br />
-      <button onClick={handleCadastro}>Cadastrar novo cliente</button>
+      <h2>Lista de clientes cadastrados</h2>
+      <ul>
+        {clientes.map((cliente) => (
+          <li key={cliente.key}>
+            <button onClick={() => handleDeleteCliente(cliente.key)}>Excluir</button>
+            {` ${cliente.nome}: ${cliente.key}`}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
