@@ -40,7 +40,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className='login'>
       {load ? (
         <p>Loading...</p>
       ) : (

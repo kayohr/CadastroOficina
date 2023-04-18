@@ -7,7 +7,7 @@ import Cliente from './pages/Cliente';
 import Servico from './pages/Servico';
 import Home from './pages/Home';
 import CadastroCliente from './pages/CadastroCliente';
-
+import './Login.css'
 
 function App() {
   return (

@@ -1,0 +1,35 @@
+.login {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('./image/Logo.png');
+  background-size: cover;
+
+  }
+/*   
+  /* .login form {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    height: 100vh;
+
+  } */
+  
+  .login label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  } 
+  
+  .login button {
+
+    margin-top: 5px;
+    
+  }
+
+   
+  
