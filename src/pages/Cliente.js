@@ -6,6 +6,8 @@ export default function Cliente() {
   const { nome, telefone, email, placaVeiculo, modeloVeiculo } = useContext(LoginContext);
   const [qrCodeData, setQrCodeData] = useState('');
   const [qrCodeKey, setQrCodeKey] = useState('');
+  const [copied, setCopied] = useState(false);
+
 
   useEffect(() => {
     // Gera uma chave aleatória para o QR code
@@ -18,6 +20,12 @@ export default function Cliente() {
 
   const handleQrCodeDataChange = (event) => {
     setQrCodeData(event.target.value);
+  };
+
+  const handleCopyQrCode = () => {
+    navigator.clipboard.writeText(qrCodeData);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -33,6 +41,7 @@ export default function Cliente() {
         QR Code data:
         <input type="text" value={qrCodeData} onChange={handleQrCodeDataChange} />
       </label>
+      <button onClick={handleCopyQrCode}>{copied ? 'Copiado!' : 'Copiar'}</button>
       <br />
       <QRCode value={qrCodeData} />
     </div>

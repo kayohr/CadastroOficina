@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Servico({ onSubmit }) {
+function Servico({ onSubmit = () => {} }) {
   const [clienteId, setClienteId] = useState("");
   const [qrCode, setQrCode] = useState("");
   const [responsavel, setResponsavel] = useState("");
