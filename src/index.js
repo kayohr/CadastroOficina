@@ -5,14 +5,16 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import LoginContext from './context/LoginProvider'
-// import { HashRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { HashRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 ReactDOM
   .createRoot(document.getElementById('root'))
   .render(
       <LoginContext>
+    <HashRouter>
         <App />
+    </HashRouter>
       </LoginContext>
   );
 
