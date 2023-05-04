@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/UltracarOficina/static/css/main.1f691138.css",
-    "main.js": "/UltracarOficina/static/js/main.17bfaf28.js",
-    "static/js/787.1c933ea4.chunk.js": "/UltracarOficina/static/js/787.1c933ea4.chunk.js",
-    "static/media/Logo.png": "/UltracarOficina/static/media/Logo.d914d912ef98eb4df252.png",
-    "index.html": "/UltracarOficina/index.html",
-    "main.1f691138.css.map": "/UltracarOficina/static/css/main.1f691138.css.map",
-    "main.17bfaf28.js.map": "/UltracarOficina/static/js/main.17bfaf28.js.map",
-    "787.1c933ea4.chunk.js.map": "/UltracarOficina/static/js/787.1c933ea4.chunk.js.map"
+    "main.css": "/CadastroOficina/static/css/main.a1ec2bbb.css",
+    "main.js": "/CadastroOficina/static/js/main.e5c8539f.js",
+    "static/js/787.1c933ea4.chunk.js": "/CadastroOficina/static/js/787.1c933ea4.chunk.js",
+    "static/media/oficina-mecanica-organizada.jpg": "/CadastroOficina/static/media/oficina-mecanica-organizada.e7a97046ce53395f7d29.jpg",
+    "index.html": "/CadastroOficina/index.html",
+    "main.a1ec2bbb.css.map": "/CadastroOficina/static/css/main.a1ec2bbb.css.map",
+    "main.e5c8539f.js.map": "/CadastroOficina/static/js/main.e5c8539f.js.map",
+    "787.1c933ea4.chunk.js.map": "/CadastroOficina/static/js/787.1c933ea4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f691138.css",
-    "static/js/main.17bfaf28.js"
+    "static/css/main.a1ec2bbb.css",
+    "static/js/main.e5c8539f.js"
   ]
 }
